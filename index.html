@@ -1,28 +1,30 @@
 <html>
-  <head>
-    <title>Product App</title>
-    <style></style>
-    <link rel="stylesheet" href="style.css">
-  </head>
 
-  <body>
-    <div class="nav-bar"></div>
-    <div id="app">
-      <div class="product">
-        
-        <div class="product-image">
-          <img :src='image'>
-        </div>
+<head>
+  <title>Product App</title>
+  <style></style>
+  <link rel="stylesheet" href="style.css">
+</head>
 
-        <div class="product-info">
-            <h1>{{product}}</h1>
-        </div>
+<body>
+  <div class="nav-bar"></div>
+  <div id="app">
+    <div class="product">
+
+      <div class="product-image">
+        <img :src='image'>
       </div>
-      
+
+      <div class="product-info">
+        <h1>{{product}}</h1>
+        <p v-show='inStock'>In Stock</p>
+      </div>
     </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="main.js"></script>
-  </body>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="main.js"></script>
+</body>
 
 </html>
