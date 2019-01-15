@@ -30,9 +30,6 @@ Vue.component('product', {
 
       <button @click='addToCart' :class='{ disabledButton: !inStock }' :disabled='!inStock'>Add to Cart</button>
 
-      <div class="cart">
-        <p>Cart( {{ cart }})</p>
-      </div>
     </div>
 
   </div>
@@ -47,12 +44,11 @@ Vue.component('product', {
         { variantId: 2234, variantColor: 'green', variantImage: './assets/vmSocks-green.png', variantQuantity: 10 },
         { variantId: 2235, variantColor: 'blue', variantImage: './assets/vmSocks-blue.png', variantQuantity: 0 },
       ],
-      cart: 0,
     }
   },
   methods: {
     addToCart() {
-      this.cart += 1
+      this.$emit('add-to-cart', this.variants[this.selectedVariant].variantId)
     },
     updateProduct(index) {
       this.selectedVariant = index
@@ -78,5 +74,11 @@ var app = new Vue({
   el: '#app',
   data: {
     premium: true,
+    cart: [],
+  },
+  methods: {
+    updateCart(id) {
+      this.cart.push(id)
+    }
   }
 })
